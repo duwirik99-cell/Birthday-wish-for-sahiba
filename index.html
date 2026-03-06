@@ -1,0 +1,354 @@
+<!DOCTYPE html>
+<html>
+<head>
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Happy Birthday My Love ❤️</title>
+
+<style>
+
+body{
+margin:0;
+font-family:Arial, sans-serif;
+text-align:center;
+background:linear-gradient(135deg,#ff9a9e,#fad0c4);
+overflow-x:hidden;
+padding:20px;
+}
+
+/* Cake Screen */
+
+.cake-screen{
+text-align:center;
+margin-top:120px;
+}
+
+.cake{
+font-size:120px;
+cursor:pointer;
+animation:bounce 2s infinite;
+}
+
+.cake-text{
+color:white;
+font-size:20px;
+margin-top:10px;
+}
+
+@keyframes bounce{
+0%,100%{transform:translateY(0)}
+50%{transform:translateY(-10px)}
+}
+
+.fadeOut{
+animation:fadeOut 1s forwards;
+}
+
+@keyframes fadeOut{
+to{
+opacity:0;
+transform:scale(0.8);
+}
+}
+
+/* Title */
+
+h1{
+color:white;
+font-size:40px;
+margin-top:30px;
+}
+
+.intro{
+color:white;
+font-size:18px;
+max-width:500px;
+margin:auto;
+margin-bottom:30px;
+}
+
+/* Buttons */
+
+button{
+padding:15px 30px;
+border:none;
+border-radius:30px;
+font-size:18px;
+background:#ff4d6d;
+color:white;
+cursor:pointer;
+box-shadow:0 5px 15px rgba(0,0,0,0.2);
+transition:0.3s;
+}
+
+button:hover{
+transform:scale(1.08);
+}
+
+/* Cards */
+
+.cards{
+display:none;
+margin-top:40px;
+flex-wrap:wrap;
+justify-content:center;
+gap:15px;
+}
+
+.card{
+background:white;
+padding:25px;
+border-radius:20px;
+width:200px;
+cursor:pointer;
+font-size:20px;
+box-shadow:0 8px 25px rgba(0,0,0,0.2);
+transition:0.3s;
+}
+
+.card:hover{
+transform:translateY(-5px) scale(1.05);
+}
+
+/* Messages */
+
+.message{
+display:none;
+background:white;
+padding:25px;
+border-radius:20px;
+max-width:650px;
+margin:30px auto;
+font-size:18px;
+line-height:1.6;
+box-shadow:0 10px 25px rgba(0,0,0,0.2);
+}
+
+/* Hearts */
+
+.heart{
+position:fixed;
+top:-10px;
+color:red;
+animation:fall linear infinite;
+}
+
+@keyframes fall{
+to{transform:translateY(100vh)}
+}
+
+/* Confetti */
+
+.confetti{
+position:fixed;
+top:-10px;
+font-size:20px;
+animation:confettiFall linear forwards;
+}
+
+@keyframes confettiFall{
+to{
+transform:translateY(100vh) rotate(360deg);
+opacity:0;
+}
+}
+
+/* Cute stickers */
+
+.sticker{
+position:fixed;
+width:70px;
+z-index:5;
+animation:float 4s ease-in-out infinite;
+}
+
+.sticker1{top:20px;left:20px;}
+.sticker2{top:80px;right:20px;}
+.sticker3{bottom:120px;left:15px;}
+.sticker4{bottom:60px;right:20px;}
+
+@keyframes float{
+0%{transform:translateY(0)}
+50%{transform:translateY(-10px)}
+100%{transform:translateY(0)}
+}
+
+/* Mobile */
+
+@media(max-width:600px){
+
+h1{font-size:28px}
+
+.card{width:90%}
+
+.message{font-size:16px}
+
+.sticker{width:50px}
+
+}
+
+</style>
+
+<script>
+
+function blowCake(){
+
+let cake=document.getElementById("cakeScreen");
+
+document.getElementById("cakeEmoji").innerHTML="🎂";
+
+cake.classList.add("fadeOut");
+
+setTimeout(function(){
+
+cake.style.display="none";
+document.getElementById("mainContent").style.display="block";
+
+},1000)
+
+}
+
+function showLetters(){
+document.getElementById("letters").style.display="flex";
+}
+
+function showMessage(id){
+
+let messages=document.getElementsByClassName("message");
+
+for(let i=0;i<messages.length;i++){
+messages[i].style.display="none";
+}
+
+document.getElementById(id).style.display="block";
+
+if(id==="m4"){
+createConfetti();
+}
+
+}
+
+function createHearts(){
+
+for(let i=0;i<25;i++){
+
+let heart=document.createElement("div");
+
+heart.className="heart";
+heart.innerHTML="❤️";
+
+heart.style.left=Math.random()*100+"vw";
+heart.style.animationDuration=(Math.random()*3+4)+"s";
+heart.style.fontSize=(Math.random()*20+15)+"px";
+
+document.body.appendChild(heart);
+
+}
+
+}
+
+function createConfetti(){
+
+for(let i=0;i<80;i++){
+
+let conf=document.createElement("div");
+
+conf.className="confetti";
+conf.innerHTML=["🎉","✨","💖","🎊"][Math.floor(Math.random()*4)];
+
+conf.style.left=Math.random()*100+"vw";
+conf.style.animationDuration=(Math.random()*3+2)+"s";
+
+document.body.appendChild(conf);
+
+}
+
+}
+
+window.onload=createHearts;
+
+</script>
+
+</head>
+
+<body>
+
+<!-- Cute stickers -->
+
+<img class="sticker sticker1" src="https://cdn-icons-png.flaticon.com/512/3468/3468371.png">
+<img class="sticker sticker2" src="https://cdn-icons-png.flaticon.com/512/3468/3468375.png">
+<img class="sticker sticker3" src="https://cdn-icons-png.flaticon.com/512/2589/2589175.png">
+<img class="sticker sticker4" src="https://cdn-icons-png.flaticon.com/512/2589/2589197.png">
+
+
+<!-- Cake Screen -->
+
+<div id="cakeScreen" class="cake-screen">
+
+<h1>Happy Birthday ❤️</h1>
+
+<div id="cakeEmoji" class="cake" onclick="blowCake()">🎂🕯️</div>
+
+<p class="cake-text">Make a wish and click the cake 🎂</p>
+
+</div>
+
+
+<!-- Main Content -->
+
+<div id="mainContent" style="display:none;">
+
+<h1>🎂 Happy Birthday My Love ❤️</h1>
+
+<p class="intro">
+I made something special just for you.  
+Every letter here is from my heart 💌
+</p>
+
+<button onclick="showLetters()">Open Your Surprise 💌</button>
+
+<div class="cards" id="letters">
+
+<div class="card" onclick="showMessage('m1')">💌 Letter 1</div>
+<div class="card" onclick="showMessage('m2')">💖 Letter 2</div>
+<div class="card" onclick="showMessage('m3')">✨ Letter 3</div>
+<div class="card" onclick="showMessage('m4')">❤️ Final Letter</div>
+
+</div>
+
+
+<div id="m1" class="message">
+Happy Birthday, My Love My Heart My Soul My world My Universe🫶🏼🌷
+Today is a special day, not just because it's your birthday, 
+but because the world was blessed with someone as beautiful, strong, and special as you. 
+I want you to know that even if things aren't perfect right now, your life means so much to me. 
+You are truly one of a kind, and I thank God every day for bringing you into my life.
+</div>
+
+<div id="m2" class="message">
+Sometimes I just sit and think how lucky I am to have you in my life.  
+Your smile, your laughter, and the way you care make every moment with you unforgettable.  
+I love you so much, and I mean that from the deepest part of my heart. No matter what life brings, 
+I'Il always be here to support you, to care for you, and to walk this journey with you.
+</div>
+
+<div id="m3" class="message">
+You're my whole entire world. you know I love you and tell you everyday to remind you, 
+but you'll never know how much I love you because my love for you can't be expressed in words.
+I know I'm not the best, but I'll always be here for you 
+How I wish that I could spend my whole life under the skies watching the stars with you? 
+No amount of distance, pain, fights or differences in opinion can break my bond with you
+</div>
+
+<div id="m4" class="message">
+On your special day, I want to promise you one thing:  
+No matter where life takes us, I will always choose you.  
+You are my happiness, my peace, my future, and the love I want beside me in every chapter of my life.  
+Happy Birthday, Meri Jaan 🫂
+</div>
+
+</div>
+
+</body>
+</html>
